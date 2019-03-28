@@ -1,15 +1,23 @@
 language: node_js
 node_js:
-- "node"
+- "10"
+
+branches:
+  only:
+  - production
 
 before_install:
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
 
-before_deploy: "npm i"
+install:
+  - npm install
+
+script:
+  - npm run build
 
 deploy:
   provider: script
-  script: "npm build && npm publish"
+  script: "npm publish"
   skip_cleanup: true
   on:
     branch: production
