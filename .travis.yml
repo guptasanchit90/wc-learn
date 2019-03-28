@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- "node"
+
+before_deploy: "npm i"
+
+deploy:
+  provider: script
+  script: "npm build && npm publish"
+  skip_cleanup: true
+  on:
+    branch: production

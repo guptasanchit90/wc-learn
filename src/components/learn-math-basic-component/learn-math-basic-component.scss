@@ -1,0 +1,62 @@
+/**
+ * @prop --min-width: Min Width of the component, default is set to 200px. This will have no effect if --display is set to grid
+ * @prop --background-color: Background color of the component, used as border color between numbers and symbols. Default is set to grey
+ * @prop --display: Tested using - grid and inline-grid only. Defaults to inline-grid
+ * @prop --grid-gap: Gap between grid items
+ * @prop --box-shadow: Add shadow behind the container
+ * @prop --div-background: Background color of the items inside the container. These are the cells which hold the numbers and symbol
+ * @prop --div-text-align: Text alignment of the numbers and symbol
+ * @prop --div-padding: Padding inside cell's
+ * @prop --div-text-color: Text color inside cells
+ * @prop --number-size: Font size for numbers
+ * @prop --symbol-size: Font size for the symbol
+ * @prop --result-size: Font size for the result
+ */
+ 
+.container{
+    min-width: var(--min-width, 200px);
+    background-color: var(--background-color, grey);
+    display: var(--display, inline-grid);
+    grid-template-areas:
+        'number1 number1'
+        'symbol-item number2'
+        'result result';
+    grid-gap: var(--grid-gap, 1px);
+    box-shadow: var(--box-shadow, 0 0 3px 0);
+
+    div {
+        background-color: var(--div-background, #FFFFFF);
+        text-align: var(--div-text-align, right);
+        padding: var(--div-padding, 6px);
+        color:  var(--div-text-color, #000000);
+        }
+}
+
+.number1{
+    font-size: var(--number-size, 1.5em);
+    grid-area: number1;
+}
+
+.number2{
+    font-size: var(--number-size, 1.5em);
+    grid-area: number2;
+}
+
+.symbol{
+    font-size: var(--symbol-size, 1.5em);
+    grid-area: symbol-item;
+}
+
+.result{
+    font-size: var(--result-size, 2em);
+    grid-area: result;
+}
+
+.error{
+    color: rgb(219, 39, 39);
+    font-size: medium;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+}
