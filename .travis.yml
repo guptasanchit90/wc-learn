@@ -9,7 +9,7 @@ before_deploy: "npm i"
 
 deploy:
   provider: script
-  script: "npm build && npm publish"
+  script: "npm run build && npm publish"
   skip_cleanup: true
   on:
     branch: production
