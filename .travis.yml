@@ -2,6 +2,9 @@ language: node_js
 node_js:
 - "node"
 
+before_install:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+
 before_deploy: "npm i"
 
 deploy:
